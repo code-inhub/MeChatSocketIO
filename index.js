@@ -26,7 +26,7 @@ const removeUser = (socketId) => {
 io.on("connection", (socket) => {
   console.log("user connected");
 
-  socket.on("addUsers", userData=> {
+  socket.on("addUsers", (userData)=> {
     addUser(userData, socket.id);
     io.emit("getUsers", users);
   })
