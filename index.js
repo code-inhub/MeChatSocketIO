@@ -2,9 +2,11 @@ import { Server } from "socket.io";
 
 const io = new Server({
   cors: {
-    origin: process.env.CORS_ORIGIN || "http://localhost:3000",
+    // origin: process.env.CORS_ORIGIN || "http://localhost:3000",
+    origin: '*',
   },
 });
+io.listen(process.env.PORT || 9000);
 
 let users = [];
 
@@ -44,4 +46,3 @@ io.on("connection", (socket) => {
            })
 });
 
-io.listen(process.env.PORT || 9000);
